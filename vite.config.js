@@ -1,8 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "/shoppingreact",
+  base: '/e-plantShopping/', // Required for GitHub Pages
+  define: {
+    'process.env': {},
+    global: 'window',
+  },
+  build: {
+    rollupOptions: {
+      external: ['crypto'],
+    },
+  },
   plugins: [react()],
-})
+});
